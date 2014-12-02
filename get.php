@@ -16,17 +16,14 @@
         $size = $size / 1024;
 	  	return $Path . "," . $size;
 	}
-	//첫방송 0514
-	$date = '20110514';
-
-	$end_date = '20110731';
+	
 	date_default_timezone_set("Asia/Seoul");
 
 	while (strtotime($date) <= strtotime($end_date)) {
 		$date = date ("Y-m-d", strtotime("+1 day", strtotime($date)));
 		$rep = str_replace("-", "", $date);
 		echo "Getting Data starnight_$rep from Server\n";
-		$result = get_saveFile("http://podcastfile.imbc.gscdn.com/mp3/radio/podcast/starnight/starnight_$rep.mp3");
+		$result = get_saveFile("potcast url");
 		if (isset($result)) {
 			$exp = explode(",", $result);
 			echo "status : Success, " . $exp[1]. "mb\n";
